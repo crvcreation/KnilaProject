@@ -1,0 +1,85 @@
+<!-- <div class="wrapper-signin">
+    <div class="form-signin w-100 min-vh-100 position-relative" *ngIf="true">
+  <form class="h-100 m-auto" [formGroup]="form">
+    <div class="d-flex mb-2 align-items-center justify-content-start w-100">
+      <img class="mb-0 me-2" src="https://vijay-chelladurai.web.app/favicon/apple-touch-icon.svg" alt="" width="50"
+        height="50">
+      <h1 class="h3 fw-normal align-self-start text-muted"><b>Sign in</b></h1>
+    </div>
+
+
+    <div class="form-floating  w-100">
+      <input autocomplete formControlName="userName" type="userName" cvalidate='{"name":"Emaill Address Address"}' class="form-control  mb-1" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Emaill Address address</label>
+    </div>
+    <div class="form-floating w-100">
+      <input autocomplete formControlName="password" type="password" cvalidate='{"name":"Password"}' class="form-control w-100" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <div class="checkbox mb-3 w-100">
+      <div class="d-flex align-items-center justify-content-between">
+        <label>
+          <input autocomplete type="checkbox" value="remember-me"> Remember me
+        </label>
+        <label>
+          <a href="#">Forgot password</a>
+        </label>
+      </div>
+    </div>
+    <button [disabled]="form.invalid" (click)="onSignIn()" class="w-100 btn btn-lg btn-primary" type="button">Sign in</button>
+    <p class="text-center mb-0">Not a member? <a data-toggle="tab" routerLink="/auth/sign-up">Sign Up</a></p>
+  </form>
+</div>
+
+</div> -->
+
+<div class="w-100 d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <form class="border p-3 rounded-3 col-md-4"[formGroup]="form" style="border:1px solid #929292 !important">
+        <div class="row g-0">
+            <div class="col text-center p-2 mb-3 bg-light">
+                <span class="fs-3">Login</span>
+            </div>
+        </div>
+    
+    
+        <div class="row">
+            <div class="col mb-3">
+                <label for="userName" class="form-label">Email address</label>
+                <input type="userName" class="form-control" id="userName" 
+                formControlName="userName">
+                <div class="form-text text-danger" *ngIf="userName.errors?.['required']&&(userName.dirty||userName.touched)">
+                    Emaill Address is Required
+                </div>
+                <div class="form-text text-danger" *ngIf="userName.errors?.['email']&&(userName.dirty||userName.touched)">
+                    Emaill Address is Invalid
+                </div>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password"
+                formControlName="password">
+                <div class="form-text text-danger" 
+                *ngIf="password.errors?.['required']&&(password.dirty||password.touched)">
+                    Password is Required
+                </div>
+                <div class="form-text text-danger" 
+                *ngIf="password.errors?.['minlength']||password.errors?.['maxlength']&&(password.dirty||password.touched)">
+                    Password should be at least 6 and at the max 15 characters long.
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6  offset-3">
+                <div class="d-grid">
+                <button type="submit" [disabled]="form.invalid" (click)="onSignIn()" class="btn btn-primary">Login</button>
+            </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
